@@ -14,10 +14,10 @@
 	<div class="center-content">
 		<h1 class="logo">JBlog</h1>
 		<ul class="menu">
-			<li><a href="">로그인</a></li>
-			<li><a href="">회원가입</a></li>
-			<li><a href="">로그아웃</a></li>
-			<li><a href="">내블로그</a></li>
+			<li><a href="${pageContext.request.contextPath}/user1/login">로그인</a></li>
+			<li><a href="${pageContext.request.contextPath}/user1/join">회원가입</a></li>
+			<li><a href="${pageContext.request.contextPath}/logut">로그아웃</a></li>
+			<li><a href="${pageContext.request.contextPath}/blog/index">내블로그</a></li>
 		</ul>
 		<form class="login-form">
       		<label>아이디</label> <input type="text" name="id">

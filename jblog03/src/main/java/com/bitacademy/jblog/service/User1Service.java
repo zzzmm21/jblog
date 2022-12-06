@@ -26,8 +26,8 @@ public class User1Service {
 		return user1Repository.findByIdAndPassword(id,password);
 	}
 
-	public User1Vo findUser(Long no) {
-			return user1Repository.findByNo(no);
+	public User1Vo findUser(Long id) {
+			return user1Repository.findById(id);
 	}
 
 

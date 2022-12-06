@@ -16,8 +16,8 @@ public class User1Repository {
 	private SqlSession sqlSession;
 	
 
-	public User1Vo findByNo(Long no) {
-		return sqlSession.selectOne("user1.findByNo", no);
+	public User1Vo findById(Long id) {
+		return sqlSession.selectOne("user1.findById", id);
 	}
 	
 	public User1Vo findByIdAndPassword(String id, String password) {
