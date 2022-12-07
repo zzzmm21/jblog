@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 		<div id="header">
-			<h1>MySite</h1>
+			<h1>jblog03</h1>
 			<ul>
 				<c:choose>
 					<c:when test="${empty authUser }">
