@@ -3,8 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 		<div id="header">
-			<h1>jblog03</h1>
-			<ul>
+			<ul class="menu">
 				<c:choose>
 					<c:when test="${empty authUser }">
 						<li><a href="${pageContext.request.contextPath }/user1/login">로그인</a><li>
@@ -12,7 +11,7 @@
 				
 					</c:when>
 					<c:otherwise>
-						<li><a href="${pageContext.request.contextPath }/blog/index">내블로그</a><li>
+						<li><a href="${pageContext.request.contextPath }/blog/">내블로그</a><li>
 						<li><a href="${pageContext.request.contextPath }/user1/logout">로그아웃</a><li>
 						<li>${authUser.name }님 안녕하세요 ^^;</li>
 					</c:otherwise>
