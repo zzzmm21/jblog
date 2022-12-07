@@ -51,10 +51,6 @@ public class User1Controller {
 	public String login() {
 		return "user1/login";
 	}
-	@RequestMapping("/logout")
-	public String logout() {
-		return "redirect:/";
-	}
 
 
 
