@@ -49,7 +49,7 @@
 		<div id="navigation">
 			<h2>카테고리</h2>
 			<ul>
-				<li><a href="${pageContext.request.contextPath}">닥치고 스프링</a></li>
+				<li><a href="${pageContext.request.contextPath}/${vo.id}/${vo.no}">sfgsf</a></li>
 				<li><a href="${pageContext.request.contextPath}">스프링 스터디</a></li>
 				<li><a href="${pageContext.request.contextPath}">스프링 프로젝트</a></li>
 				<li><a href="${pageContext.request.contextPath}">기타</a></li>

@@ -19,6 +19,7 @@ public class BlogService {
 		blogRepository.update(vo);
 	}
 
+
 	
 
 }

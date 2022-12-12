@@ -1,14 +1,30 @@
 package com.bitacademy.jblog.controller;
 
+import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.bitacademy.jblog.security.Auth;
+import com.bitacademy.jblog.security.AuthUser;
+import com.bitacademy.jblog.service.BlogService;
+import com.bitacademy.jblog.service.CategoryService;
+import com.bitacademy.jblog.vo.CategoryVo;
+import com.bitacademy.jblog.vo.User1Vo;
 
 @Controller
 @RequestMapping("/{id:(?!assets).*}")
 public class BlogController {
+	@Autowired
+	BlogService blogService;
+
+	@Autowired
+	CategoryService categoryService;
 	@RequestMapping({"", "/{pathNo1}", "/{pathNo1}/{pathNo2}"})
 	public String index(
 			@PathVariable("id")String id,
@@ -27,7 +43,7 @@ public class BlogController {
 		
 	}
 	
-	@RequestMapping({"/admin","/admin/basic"})
+	@RequestMapping({"/admin","/basic"})
 	public String adminBasic(@PathVariable("id")String id) {
 		return "blog/admin-basic";
 		
@@ -36,4 +52,23 @@ public class BlogController {
 	public String joinsuccess() {
 		return "user1/joinsuccess";
 	}
+	@Auth
+	@GetMapping("admin/category")
+	public String adminCategory(
+			@AuthUser User1Vo authUser, 
+			Model model) {
+		
+		model.addAttribute("blogVo", blogService.getBlog(authUser.getId()));
+
+		List<CategoryVo> list = categoryService.getLists(authUser.getId());
+
+		for (int i = 0; i < list.size(); i++) {
+			list.get(i).setCount((int) categoryService.getCategoryCountByNo(authUser.getId(), list.get(i).getNo()));
+		}
+
+		model.addAttribute("categoryList", list);
+		return "blog/admin/category";
+	}
+
+	
 }
