@@ -32,4 +32,8 @@ public class BlogController {
 		return "blog/admin-basic";
 		
 	}
+	@RequestMapping("/blog")
+	public String joinsuccess() {
+		return "user1/joinsuccess";
+	}
 }
