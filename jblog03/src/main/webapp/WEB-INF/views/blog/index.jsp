@@ -13,11 +13,7 @@
 	<div id="container">
 		<div id="header">
 			<h1>Spring 이야기</h1>
-			<ul>
-				<li><a href="${pageContext.request.contextPath}/user1/login">로그인</a></li>
-				<li><a href="${pageContext.request.contextPath}">로그아웃</a></li>
-				<li><a href="">블로그 관리</a></li>
-			</ul>
+				<c:import url="/WEB-INF/views/includes/header.jsp" />
 		</div>
 		<div id="wrapper">
 			<div id="content">
@@ -31,7 +27,7 @@
 					<p>
 				</div>
 				<ul class="blog-list">
-					<li><a href="${pageContext.request.contextPath}">Spring Camp 2016 참여기</a> <span>2015/05/02</span>	</li>
+					<li><a href="${pageContext.request.contextPath}/blog/basic.jsp">Spring Camp 2016 참여기</a> <span>2015/05/02</span>	</li>
 					<li><a href="${pageContext.request.contextPath}">Spring Boot 사용법 정리</a> <span>2015/05/02</span>	</li>
 					<li><a href="${pageContext.request.contextPath}">Spring Security 설정법</a> <span>2015/05/02</span>	</li>
 					<li><a href="${pageContext.request.contextPath}">JPA + Hinernate</a> <span>2015/05/02</span>	</li>
@@ -49,7 +45,7 @@
 		<div id="navigation">
 			<h2>카테고리</h2>
 			<ul>
-				<li><a href="${pageContext.request.contextPath}/${vo.id}/${vo.no}">sfgsf</a></li>
+				<li><a href="${pageContext.request.contextPath}"></a></li>
 				<li><a href="${pageContext.request.contextPath}">스프링 스터디</a></li>
 				<li><a href="${pageContext.request.contextPath}">스프링 프로젝트</a></li>
 				<li><a href="${pageContext.request.contextPath}">기타</a></li>

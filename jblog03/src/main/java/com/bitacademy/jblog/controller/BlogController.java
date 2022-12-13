@@ -52,23 +52,7 @@ public class BlogController {
 	public String joinsuccess() {
 		return "user1/joinsuccess";
 	}
-	@Auth
-	@GetMapping("admin/category")
-	public String adminCategory(
-			@AuthUser User1Vo authUser, 
-			Model model) {
-		
-		model.addAttribute("blogVo", blogService.getBlog(authUser.getId()));
 
-		List<CategoryVo> list = categoryService.getLists(authUser.getId());
-
-		for (int i = 0; i < list.size(); i++) {
-			list.get(i).setCount((int) categoryService.getCategoryCountByNo(authUser.getId(), list.get(i).getNo()));
-		}
-
-		model.addAttribute("categoryList", list);
-		return "blog/admin/category";
-	}
 
 	
 }
