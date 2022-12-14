@@ -7,12 +7,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import com.bitacademy.jblog.service.User1Service;
-import com.bitacademy.jblog.vo.User1Vo;
+import com.bitacademy.jblog.service.UserService;
+import com.bitacademy.jblog.vo.UserVo;
 
 public class LoginInterceptor implements HandlerInterceptor {
 	@Autowired
-	private User1Service user1Service;
+	private UserService userService;
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -20,11 +20,11 @@ public class LoginInterceptor implements HandlerInterceptor {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 
-		User1Vo authUser = user1Service.findUser(id, password);
+		UserVo authUser = userService.findUser(id, password);
 		
 		if(authUser == null) {
 			request.setAttribute("id", id);
-			request.getRequestDispatcher("/WEB-INF/views/user1/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/user/login.jsp").forward(request, response);
 			return false;
 		}
 		

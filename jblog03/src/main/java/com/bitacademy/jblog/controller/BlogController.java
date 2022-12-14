@@ -15,7 +15,7 @@ import com.bitacademy.jblog.security.AuthUser;
 import com.bitacademy.jblog.service.BlogService;
 import com.bitacademy.jblog.service.CategoryService;
 import com.bitacademy.jblog.vo.CategoryVo;
-import com.bitacademy.jblog.vo.User1Vo;
+import com.bitacademy.jblog.vo.UserVo;
 
 @Controller
 @RequestMapping("/{id:(?!assets).*}")

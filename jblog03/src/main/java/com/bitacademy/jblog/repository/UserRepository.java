@@ -7,28 +7,28 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bitacademy.jblog.vo.User1Vo;
+import com.bitacademy.jblog.vo.UserVo;
 
 
 @Repository
-public class User1Repository {
+public class UserRepository {
 	@Autowired
 	private SqlSession sqlSession;
 	
 
-	public User1Vo findById(Long id) {
-		return sqlSession.selectOne("user1.findById", id);
+	public UserVo findById(String id) {
+		return sqlSession.selectOne("user.findById", id);
 	}
 	
-	public User1Vo findByIdAndPassword(String id, String password) {
+	public UserVo findByIdAndPassword(String id, String password) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("id", id);
 		map.put("password", password);
-		return sqlSession.selectOne("user1.findByIdAndPassword", map);
+		return sqlSession.selectOne("user.findByIdAndPassword", map);
 	}
 	
-	public Boolean insert(User1Vo vo) {
-		int count = sqlSession.insert("user1.insert", vo);
+	public Boolean insert(UserVo vo) {
+		int count = sqlSession.insert("user.insert", vo);
 		return count == 1;
 	}
 }

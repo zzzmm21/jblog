@@ -10,7 +10,7 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-import com.bitacademy.jblog.vo.User1Vo;
+import com.bitacademy.jblog.vo.UserVo;
 
 
 public class AuthUserHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
@@ -40,7 +40,7 @@ public class AuthUserHandlerMethodArgumentResolver implements HandlerMethodArgum
 		}
 		
 		// 파라미터 타입이 UserVo가 아니라면...
-		if(!parameter.getParameterType().equals(User1Vo.class)) {
+		if(!parameter.getParameterType().equals(UserVo.class)) {
 			return false;
 		}
 		

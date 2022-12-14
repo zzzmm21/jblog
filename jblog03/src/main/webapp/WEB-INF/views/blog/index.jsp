@@ -45,8 +45,8 @@
 		<div id="navigation">
 			<h2>카테고리</h2>
 			<ul>
-				<li><a href="${pageContext.request.contextPath}"></a></li>
-				<li><a href="${pageContext.request.contextPath}">스프링 스터디</a></li>
+				<li><a href="${pageContext.request.contextPath}">sdsd</a></li>
+				<li><a href="${pageContext.request.contextPath}/category">스프링 스터디</a></li>
 				<li><a href="${pageContext.request.contextPath}">스프링 프로젝트</a></li>
 				<li><a href="${pageContext.request.contextPath}">기타</a></li>
 			</ul>

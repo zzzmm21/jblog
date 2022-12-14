@@ -1,7 +1,7 @@
 package com.bitacademy.jblog.vo;
 
 
-public class User1Vo {
+public class UserVo {
 	private String id;
 	private String name;
 	private String password;
@@ -32,7 +32,7 @@ public class User1Vo {
 	}
 	@Override
 	public String toString() {
-		return "User1Vo [id=" + id + ", name=" + name + ", password=" + password + ", role=" + role + "]";
+		return "UserVo [id=" + id + ", name=" + name + ", password=" + password + ", role=" + role + "]";
 	}
 	
 }

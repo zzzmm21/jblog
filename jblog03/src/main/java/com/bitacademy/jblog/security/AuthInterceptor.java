@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import com.bitacademy.jblog.vo.User1Vo;
+import com.bitacademy.jblog.vo.UserVo;
 
 
 public class AuthInterceptor implements HandlerInterceptor {
@@ -42,7 +42,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 			return false;
 		}
 		
-		User1Vo authUser = (User1Vo)session.getAttribute("authUser");
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		if(authUser == null) {
 			response.sendRedirect(request.getContextPath() + "/user/login");
 			return false;
