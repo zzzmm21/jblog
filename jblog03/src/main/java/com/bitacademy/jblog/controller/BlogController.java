@@ -50,7 +50,7 @@ public class BlogController {
 	}
 	@RequestMapping("/blog")
 	public String joinsuccess() {
-		return "user1/joinsuccess";
+		return "user/joinsuccess";
 	}
 
 
