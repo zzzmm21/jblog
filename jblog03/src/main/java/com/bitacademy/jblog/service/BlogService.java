@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.bitacademy.jblog.repository.BlogRepository;
 import com.bitacademy.jblog.vo.BlogVo;
+import com.bitacademy.jblog.vo.PostVo;
 
 @Service
 public class BlogService {
@@ -17,6 +18,16 @@ public class BlogService {
 //
 	public void update(BlogVo vo) {
 		blogRepository.update(vo);
+	}
+
+	public Object findCategoryNoAndName(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void write(PostVo postVo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

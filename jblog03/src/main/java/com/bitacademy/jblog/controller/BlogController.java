@@ -1,20 +1,18 @@
 package com.bitacademy.jblog.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bitacademy.jblog.security.Auth;
 import com.bitacademy.jblog.security.AuthUser;
 import com.bitacademy.jblog.service.BlogService;
 import com.bitacademy.jblog.service.CategoryService;
-import com.bitacademy.jblog.vo.CategoryVo;
+import com.bitacademy.jblog.vo.PostVo;
 import com.bitacademy.jblog.vo.UserVo;
 
 @Controller
@@ -52,7 +50,31 @@ public class BlogController {
 	public String joinsuccess() {
 		return "user/joinsuccess";
 	}
+	
 
+
+	@RequestMapping("/category")
+	public String adminCategory() {
+		return "/blog/blog-admin-category";
+	}
 
 	
+	
+	@RequestMapping(value = "/write" ,method=RequestMethod.GET)
+	public String adminWrite(@AuthUser UserVo authUser,
+							Model model) {
+		model.addAttribute("list", blogService.findCategoryNoAndName(authUser.getId()));
+		return "/blog/blog-admin-write";
+	}
+	
+
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	public String adminWrite(@AuthUser UserVo authUser,PostVo postVo) {
+		blogService.write(postVo);
+		return "redirect:/" + authUser.getId() + "/admin/write";
+	}
+	
 }
+
+
+
