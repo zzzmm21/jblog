@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.bitacademy.jblog.security.Auth;
 import com.bitacademy.jblog.security.AuthUser;
 import com.bitacademy.jblog.service.BlogService;
 import com.bitacademy.jblog.service.CategoryService;
@@ -40,12 +41,13 @@ public class BlogController {
 		return"blog/index";
 		
 	}
-	
+	@Auth
 	@RequestMapping({"/admin","/basic"})
 	public String adminBasic(@PathVariable("id")String id) {
 		return "blog/admin-basic";
 		
 	}
+	@Auth
 	@RequestMapping("/blog")
 	public String joinsuccess() {
 		return "user/joinsuccess";
@@ -53,13 +55,8 @@ public class BlogController {
 	
 
 
-	@RequestMapping("/category")
-	public String adminCategory() {
-		return "/blog/blog-admin-category";
-	}
-
 	
-	
+	@Auth
 	@RequestMapping(value = "/write" ,method=RequestMethod.GET)
 	public String adminWrite(@AuthUser UserVo authUser,
 							Model model) {
@@ -67,7 +64,7 @@ public class BlogController {
 		return "/blog/blog-admin-write";
 	}
 	
-
+	@Auth
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String adminWrite(@AuthUser UserVo authUser,PostVo postVo) {
 		blogService.write(postVo);
